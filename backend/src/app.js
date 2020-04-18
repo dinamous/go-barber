@@ -1,6 +1,12 @@
 const express = require('express');
 const routes = require('./routes');
 
+
+// const app = express();
+// app.use(express.json());
+// app.use(routes);
+// app.listen(3333);
+
 class App{
     constructor(){
         this.server = express();
@@ -21,4 +27,4 @@ class App{
     }
 }
 
-module.export = new App().server;
+module.exports = new App().server;
