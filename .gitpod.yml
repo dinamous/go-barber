@@ -10,4 +10,4 @@ ports:
 tasks:
   - before: cd backend
     init: yarn 
-    command: node src/server.js
+    command: yarn dev
