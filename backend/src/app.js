@@ -13,12 +13,12 @@ class App{
 
     middlewares(){
         //enviar e receber requisições pelo modo json
-        this.server.use(express.json());
+        this.server.use(express.json())
     }
 
     routes(){
         //utilizando o arquivo de rotas
-        this.server.use(routes);
+        this.server.use(routes)
     }
 }
 
