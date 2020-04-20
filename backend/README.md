@@ -107,8 +107,8 @@ Para fazer com que todos os arquivo sejam corrigidos:
 
 ```yarn eslint --fix src --ext .js```
 
-
 ## EditorConfig (Necessário extensão VsCode)
+
 Após instalação da extensão, na raiz do projeto, com botão direito, gere um .editorconfig e verifique se seu conteudo está de acordo:
 
 ```json
