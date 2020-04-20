@@ -68,13 +68,12 @@ E adicione esta linha:
 No arquivo .eslintrc.js, adicione as seguintes regras:
 
 ```json
-    "rules": {
-            "prettier/prettier":"error",
-            "class-methods-use-this":"off",
-            "no-param-reassign":"off",
-            "camelcase":"off",
-            "no-unused-vars":["error",{"argsIgnorePattern":"next"}]
-        }
+    rules: {
+        "class-methods-use-this":"off",
+        "no-param-reassign":"off",
+        "camelcase":"off",
+        "no-unused-vars":["error",{"argsIgnorePattern":"next"}],
+    },
 ```
 
 ## Prettier (Necessário extensão VsCode)
@@ -82,19 +81,20 @@ No arquivo .eslintrc.js, adicione as seguintes regras:
 Para instalar as dependencias digite o seguinte comando:
 
 ```bash
-yarn add prettier eslint-prettier-config eslint-plugin-prettier -D
+yarn add prettier eslint-config-prettier eslint-plugin-prettier -D
 ```
 
 Adicione o Prettier como extensão do eslintrc.js de modo que fique assim:
 
 ```json
-"extends": [
-        "airbnb-base",
-        "prettier"
+    "extends": [
+        'airbnb-base',
+        'prettier'
     ],
+plugins:['prettier'],
 ```
 
-Crie um arquivo .prettierrc.js e adicione este código:
+Crie um arquivo .prettierrc e adicione este código:
 
 ```json
 {
@@ -104,4 +104,20 @@ Crie um arquivo .prettierrc.js e adicione este código:
 ```
 
 Para fazer com que todos os arquivo sejam corrigidos:
-``` yarn eslint --fix src --ext .js```
+
+```yarn eslint --fix src --ext .js```
+
+
+## EditorConfig (Necessário extensão VsCode)
+Após instalação da extensão, na raiz do projeto, com botão direito, gere um .editorconfig e verifique se seu conteudo está de acordo:
+
+```json
+    root = true
+
+    [*]
+    indent_style = space
+    indent_size = 4
+    charset = utf-8
+    trim_trailing_whitespace = true
+    insert_final_newline = true
+```
