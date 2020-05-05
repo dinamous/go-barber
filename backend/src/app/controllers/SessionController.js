@@ -1,5 +1,7 @@
-// import jwt from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 import User from '../models/User';
+
+import authConfig from '../../config/auth';
 
 class Session {
     async store(req, res) {
@@ -15,9 +17,18 @@ class Session {
             return res.status(401).json({ error: 'Password does not match' });
         }
 
-        // const { id, name } = user;
+        const { id, name } = user;
 
-        return this;
+        return res.json({
+            user: {
+                id,
+                name,
+                email,
+            },
+            token: jwt.sign({ id }, authConfig.secret, {
+                expiresIn: authConfig.expiresIn,
+            }),
+        });
     }
 }
 
