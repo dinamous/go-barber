@@ -19,8 +19,10 @@ class UserController {
         if (userExists) {
             return res.status(400).json({ error: 'User already exists' });
         }
-        const { id, name, email, provider } = await User.create(req.body);
-        return res.json({ id, name, email, provider });
+        const { id, name, email, provider, avatar_id } = await User.create(
+            req.body
+        );
+        return res.json({ id, name, email, provider, avatar_id });
     }
 
     async update(req, res) {
@@ -45,7 +47,6 @@ class UserController {
         const { email, oldPassword } = req.body;
         const user = await User.findByPk(req.userId);
         if (email !== user.email) {
-            console.log(email);
             const userExists = await User.findOne({ where: { email } });
             if (userExists) {
                 return res.status(400).json({ error: 'User already exists' });
